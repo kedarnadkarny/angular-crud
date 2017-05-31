@@ -1,3 +1,54 @@
 <h1>
   {{title}}
 </h1>
+<h2>Create Data</h2>
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="email" class="form-control" name="name" placeholder="Name"  [(ngModel)]="model.name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Position</label>
+    <input type="email" class="form-control" name="position" placeholder="Position" [(ngModel)]="model.position">
+  </div>
+
+  <button type="submit" class="btn btn-default" (click)="addEmployee()">Save</button>
+</form>
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+  <th width=400>Name</th>
+  <th width=400>Position</th>
+  <th width=200>Actions</th>
+</tr>
+</thead>
+<tbody>
+  <tr *ngFor = "let employee of employees; let i = index">
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>
+      <a class="btn btn-success" (click)="editEmployee(i)">Edit</a>
+      <a class="btn btn-danger" (click)="deleteEmployee(i)">Delete</a>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+<h2>Update Data</h2>
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="email" class="form-control" name="name" placeholder="Name"  [(ngModel)]="model2.name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Position</label>
+    <input type="email" class="form-control" name="position" placeholder="Position" [(ngModel)]="model2.position">
+  </div>
+
+  <button type="submit" class="btn btn-default" (click)="updateEmployee()">Update Employee</button>
+</form>
